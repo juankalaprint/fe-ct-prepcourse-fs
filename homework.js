@@ -69,9 +69,9 @@ function tieneEmail(objetoUsuario) {
    // En ese caso retornar true. Caso contrario, false.
    // Tu código:
    if (objetoUsuario['email']){
-      return true;
+      return True;
    } else {
-      return false;
+      return False;
    }
 }
 
@@ -80,9 +80,9 @@ function tienePropiedad(objeto, propiedad) {
    // En ese caso retornar true. Caso contrario, false.
    // Tu código:
    if (objeto[propiedad]) {
-      return true;
+      return True;
    } else {
-      return false;
+      return False;
    }
 
 }
