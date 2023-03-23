@@ -1,238 +1,283 @@
 /*⚠️ NO MODIFIQUES EL NOMBRE DE LAS DECLARACIONES ⚠️*/
 
-function obtenerMayor(x, y) {
-   // "x" e "y" son números enteros.
+function devolverPrimerElemento(array) {
+   // Retornar el primer elemento del arreglo recibido por parámetro.
+   // Tu código:
+   return array[0];
+}
+
+function devolverUltimoElemento(array) {
+   // Retornar el último elemento del arreglo recibido por parámetro.
+   // Tu código:
+   return array.pop();
+}
+
+function obtenerLargoDelArray(array) {
+   // Retornar la longitud del arreglo recibido por parámetro.
+   // Tu código:
+   return array.length;
+}
+
+function incrementarPorUno(array) {
+   // El arreglo recibido por parámetro contiene números.
+   // Retornar un arreglo con los elementos incrementados en +1.
+   // Tu código:
+   var porUno = [];
+   for(var i = 0; i < array.length; i++) {
+      porUno[i] = array[i] + 1;
+   }
+   return porUno;
+}
+
+function agregarItemAlFinalDelArray(array, elemento) {
+   // Agrega el "elemento" al final del arreglo recibido.
+   // Retorna el arreglo.
+   // Tu código:
+   array.push(elemento);
+   return array;
+}
+
+function agregarItemAlComienzoDelArray(array, elemento) {
+   // Agrega el "elemento" al comienzo del arreglo recibido.
+   // Retorna el arreglo.
+   // Tu código:
+   array.unshift(elemento);
+   return array;
+}
+
+function dePalabrasAFrase(palabras) {
+   // El argumento "palabras" es un arreglo de strings.
+   // Retornar un string donde todas las palabras estén concatenadas
+   // con un espacio entre cada palabra.
+   // Ejemplo: ['Hello', 'world!'] -> 'Hello world!'.
+   // Tu código:
+   return palabras.join(' ');
+}
+
+function arrayContiene(array, elemento) {
+   // Verifica si el elemento existe dentro del arreglo recibido.
+   // Retornar true si está, o false si no está.
+   // Tu código:
+   for(var i = 0; i < array.length; i++) {
+      if (array[i] === elemento) {
+         return true;
+      }
+   }
+   return false;
+}
+
+function agregarNumeros(arrayOfNums) {
+   // El parámetro "arrayOfNums" debe ser un arreglo de números.
+   // Suma todos los elementos y retorna el resultado.
+   // Tu código:
+   var suma = 0;
+   arrayOfNums.forEach (function(num){
+      suma =suma + num;
+   });
+   return suma;
+}
+
+function promedioResultadosTest(resultadosTest) {
+   // El parámetro "resultadosTest" es un arreglo de números.
+   // Itera (en un bucle) los elementos del arreglo y devuelve el promedio de las notas.
+   // Tu código:
+   var acumulador = 0;
+   for(var i = 0; i < resultadosTest.length; i++){
+      acumulador = acumulador + resultadosTest[i];
+   }
+   var promedio = acumulador / resultadosTest.length;
+   return promedio;
+
+
+}
+
+function numeroMasGrande(arrayOfNums) {
+   // El parámetro "arrayOfNums" es un arreglo de números.
    // Retornar el número más grande.
-   // Si son iguales, retornar cualquiera de los dos.
    // Tu código:
-   if(x > y){
-      return x;
-   }else if(x < y){
-      return y;
-   }else{
-      return x || y;
+   var masGrande = arrayOfNums[0];
+   for (var i = 0; i < arrayOfNums.length; i++) {
+      if(arrayOfNums[i] > masGrande) {
+         masGrande = arrayOfNums[i];
+      }
+   }
+   return masGrande;
+}
+
+function multiplicarArgumentos() {
+   // Usa la palabra clave `arguments` para multiplicar todos los argumentos y devolver el producto.
+   // Si no se pasan argumentos retorna 0. Si se pasa un argumento, simplemente retórnalo.
+   // [PISTA]: "arguments" es un arreglo.
+   // Tu código:
+   var total = 1;
+   if(arguments.length === 0) return 0;
+   else if (arguments.length === 1) return arguments[0];
+   else {for (var i = 0; i < arguments.length; i++){
+      total = total * arguments[i];
+   }
+   return total;
+      }
+}
+
+function cuentoElementos(array) {
+   // Desarrolla una función que retorne la cantidad de elementos del arreglo cuyo valor sea mayor que 18.
+   // Tu código:
+   var contador = 0;
+   for (var i = 0; i < array.length; i++) {
+      if (array[i] > 18){
+         contador++
+      }
+   }
+   return contador;
+}
+
+function diaDeLaSemana(numeroDeDia) {
+   // Supongamos que los días de la semana se codifican como 1 = Domingo, 2 = Lunes y así sucesivamente.
+   // Realiza una función que, dado el número del día de la semana, retorne: "Es fin de semana"
+   // si el día corresponde a "Sábado" o "Domingo", y "Es dia laboral" en caso contrario.
+   // Tu código:
+   if (numeroDeDia === 1 || numeroDeDia === 7) {
+      return "Es fin de semana";
+   } else {
+      return "Es dia laboral";
    }
 }
 
-function mayoriaDeEdad(edad) {
-   // Determinar si la persona puede ingresar al evento según su edad.
-   // Si tiene 18 años ó más debe retornar el string: "Allowed".
-   // Caso contrario: "Not allowed".
+function empiezaConNueve(num) {
+   // Esta función recibe por parámetro un número.
+   // Debe retornar true si el entero inicia con 9 y false en otro caso.
    // Tu código:
-   if(edad >= 18){
-      return "Allowed";
-   }else{
-      return "Not allowed";
-   }
-}
-
-function conection(status) {
-   // El argumento "status" representa el estado de conexión de un usuario.
-   // Si el estado es igual a 1, el usuario está "Online".
-   // Si el estado es igual a 2, el usuario está "Away".
-   // De lo contrario, presumimos que el usuario está "Offline".
-   // Retornar el estado de conexión del usuario.
-   // Tu código:
-   if(status === 1){
-      return "Online";
-   }else if(status === 2){
-      return "Away";
-   }else{
-      return "Offline";
-   }
-}
-
-function saludo(idioma) {
-   // Retornar un saludo en tres diferentes lenguajes:
-   // Si "idioma" es "aleman", devuelve "Guten Tag!".
-   // Si "idioma" es "mandarin", devuelve "Ni Hao!".
-   // Si "idioma" es "ingles", devuelve "Hello!".
-   // Si "idioma" no es ninguno de los anteriores o es `undefined` devuelve "Hola!".
-   // Tu código:
-   if (idioma === "aleman"){
-      return "Guten Tag!";
-   }else if(idioma === "mandarin"){
-      return "Ni Hao!";
-
-   }else if(idioma === "ingles"){
-      return "Hello!";
-   }else  {
-       return "Hola"+"!";
-   }
-   
-}
-
-function colors(color) {
-   // La función recibe un color. Retornar el string correspondiente:
-   // En caso que el color recibido sea "blue"   --> "This is blue".
-   // En caso que el color recibido sea "red"    --> "This is red".
-   // En caso que el color recibido sea "green"  --> "This is green".
-   // En caso que el color recibido sea "orange" --> "This is orange".
-   // Si no es ninguno de esos colores           --> "Color not found".
-   // IMPORTANTE: utilizar el statement SWITCH.
-   // Tu código:
-   switch (color) {
-      case "blue":return "This is blue";
-      case "red":return "This is red";
-      case "green":return "This is green";
-      case "orange":return "This is orange";
-   default:
-         return "Color not found";
-   }
-}
-
-
-
-function esDiezOCinco(num) {
-   // Retornar true si "num" es 10 o 5.
-   // De lo contrario, retornar false.
-   // Tu código:
-   if(num ===10 || num === 5){
+   var str = num.toString();
+   if (str[0] === '9'){
       return true;
-   }else{
-      return false;
-   }
-}
-
-function estaEnRango(num) {
-   // Retornar true si "num" es menor que 50 y mayor que 20.
-   // De lo contrario, retornar false.
-   // Tu código:
-   if(num< 50 && num> 20){
-      return true;
-   }else{
-      return false;
-   }
-}
-
-function esEntero(num) {
-   // Retornar true si "num" es un entero, ya sea positivo, negativo o cero.
-   // Ejemplo: 0.8   ---> false
-   // Ejemplo: 1     ---> true
-   // Ejemplo: (-10) ---> true
-   // De lo contrario, retorna false.
-   // Tu código:
-   if(num % 1 === 0){
-      return true;
-   }else {
-      return false;
-   }
-}
-
-function fizzBuzz(num) {
-   // Si "num" es divisible entre 3, retorna "fizz".
-   // Si "num" es divisible entre 5, retorna "buzz".
-   // Si "num" es divisible entre 3 y 5 (ambos), retorna "fizzbuzz".
-   // De lo contrario, retorna false.
-   // Tu código:
-   if(num % 3 === 0 && num % 5 === 0){
-      return "fizzbuzz";
-   }else if(num % 5 ===0){
-      return "buzz";
-   }else if(num % 3 === 0){
-      return "fizz";
-   }else{
-      return false;
-   }
-}
-
-function operadoresLogicos(num1, num2, num3) {
-   // La función recibe tres números distintos.
-   // Si num1 es mayor a num2 y a num3, y además es positivo, retornar ---> "Numero 1 es mayor y positivo".
-   // Si alguno de los tres números es negativo, retornar ---> "Hay negativos".
-   // Si num3 es más grande que num1 y num2, aumentar su valor en 1 y retornar el nuevo valor.
-   // Si todos los argumentos son cero, retornar ---> "Error".
-   // Si no se cumple ninguna de las condiciones anteriores, retornar false.
-   // Tu código:
-
-   if (num1 > num2 && num1 > num3 && num1 > 0) {
-      return "Numero 1 es mayor y positivo";
-   } else if (num1 < 0 || num2 < 0 || num3 < 0) {
-      return "Hay negativos";
-   } else if (num3 > num1 && num3 > num2) {
-      return num3 + 1;
-   } else if (num1 === 0 && num2 === 0 && num3 ===0) {
-      return "Error";
    } else {
       return false;
    }
 }
 
-
-
-function esPrimo(num) {
-   // Retornar true si "num" es primo.
-   // De lo contrario retorna false.
-   // [Pista 1]: un número primo sólo es divisible por sí mismo y por 1.
-   // [Pista 2]: puedes resolverlo utilizando un `bucle for`.
-   // [Nota]: los números negativos, 0 y 1 NO son números primos.
+function todosIguales(array) {
+   // Si todos los elementos del arreglo son iguales, retornar true.
+   // Caso contrario retornar false.
    // Tu código:
-   if (num < 2) return false;
-   if (num === 2) return true;
-   for (var i = 2; i < num; i++) {
-      if (num % i === 0) {
-         return false;
+   for (var i = 1; i < array.length; i++) {
+      if (array[0] === array[i]){
+         return true;
       }
    }
-   return true;
+   return false;
 }
 
 
-function esVerdadero(valor) {
-   // Si "valor" es verdadero retornar "Soy verdadero".
-   // Caso contrario, retornar "Soy falso".
+
+function mesesDelAño(array) {
+   // El arreglo contiene algunos meses del año desordenados. Debes recorrerlo, buscar los meses "Enero",
+   // "Marzo" y "Noviembre", guardarlos en un nuevo arreglo y retornarlo.
+   // Si alguno de los meses no está, retornar el string: "No se encontraron los meses pedidos".
    // Tu código:
-   if (valor === true) {
-      return "Soy verdadero";
-   } else {
-      return "Soy falso";
+   var nuevoArray = [];
+   for (var i = 0; i < array.length; i++) {
+      if (array[i] === 'Enero' || array[i] === 'Marzo' || array[i] === 'Noviembre') {
+         nuevoArray.push(array[i])
       }
-}
-
-function tieneTresDigitos(num) {
-   // Si el número recibido tiene tres dígitos retornar true.
-   // Caso contrario, retornar false.
-   // Tu código:
-
-   if (num >= 100 && num <= 999) {
-      return true;
+   }
+   if (nuevoArray.length < 3){
+      return 'No se encontraron los meses pedidos';
    } else {
-      return false;
-      }
-
+      return nuevoArray;
+   }
 }
 
-function doWhile(num) {
-   // Implementar una función que aumente el valor recibido en 5 hasta un límite de 8 veces.
-   // Retornar el valor final.
-   // Utilizar el bucle Do-While.
+function tablaDelSeis() {
+   // Escribe una función que muestre la tabla de multiplicar del 6 (del 0 al 60).
+   // La función devuelve un arreglo con los resultados de la tabla de multiplicar del 6 en orden creciente.
    // Tu código:
+   var tabla = [];
+   for (i = 0; i < 11; i++) {
+      tabla.push(6*i);
+   }
+   return tabla;
+}
 
-   var i = 0 
-   var a = num 
-   do{ 
-      i = i + 1;
-      a = a + 5;
-   } while (i < 8);
-      return a;
-   
+function mayorACien(array) {
+   // La función recibe un arreglo con enteros entre 0 y 200.
+   // Recorrerlo y retornar un arreglo con todos los valores mayores a 100 (no incluye el 100).
+   // Tu código:
+   var nuevoArray = [];
+   for(var i = 0; i < array.length; i++) {
+      if (array[i] > 100) {
+         nuevoArray.push(array[i])
+      }
+   }
+   return nuevoArray;
+}
+
+
+/* ----------------------------------------------------------------------------------
+💪 EXTRA CREDIT EXTRA CREDIT EXTRA CREDIT EXTRA CREDIT EXTRA CREDIT  EXTRA CREDIT 💪
+-------------------------------------------------------------------------------------*/
+
+function breakStatement(num) {
+   // Iterar en un bucle aumentando en 2 el número recibido hasta un límite de 10 veces.
+   // Guardar cada nuevo valor en un arreglo y retornarlo.
+   // Si en algún momento el valor de la suma y la cantidad de iteraciones coinciden, debe interrumpirse
+   // la ejecución y retornar el string: "Se interrumpió la ejecución".
+   // [PISTA]: utiliza el statement 'break'.
+   // Tu código:
+   var array = [];
+   var suma = num;
+   for (var i = 0; i < 10; i++) {
+      suma = suma + 2;
+      if (suma === i) break;
+      else {array.push(suma);
+      }
+   }if(i < 10) {
+      return 'Se interrumpió la ejecución';
+   } else {
+      return array;
+   }
+}
+
+function continueStatement(num) {
+   // Iterar en un bucle aumentando en 2 el número recibido hasta un límite de 10 veces.
+   // Guardar cada nuevo valor en un array y retornarlo.
+   // Cuando el número de iteraciones alcance el valor 5, no se suma ese caso y
+   // se continua con la siguiente iteración.
+   // [PISTA]: utiliza el statement 'continue'.
+   // Tu código:
+   var array = [];
+   var suma = num;
+   for (i = 0; i < 10; i++) {
+      if (i === 5){continue;
+      } else {
+         suma = suma + 2;
+         array.push(suma);
+      }
+   }
+   return array; 
 
 }
 
 /*⚠️ NO MODIFIQUES NADA DEBAJO DE ESTO ⚠️*/
 module.exports = {
-   obtenerMayor,
-   mayoriaDeEdad,
-   conection,
-   saludo,
-   colors,
-   esDiezOCinco,
-   estaEnRango,
-   esEntero,
-   fizzBuzz,
-   operadoresLogicos,
-   esPrimo,
-   esVerdadero,
-   tieneTresDigitos,
-   doWhile,
+   devolverPrimerElemento,
+   devolverUltimoElemento,
+   obtenerLargoDelArray,
+   incrementarPorUno,
+   agregarItemAlFinalDelArray,
+   agregarItemAlComienzoDelArray,
+   dePalabrasAFrase,
+   arrayContiene,
+   agregarNumeros,
+   promedioResultadosTest,
+   numeroMasGrande,
+   multiplicarArgumentos,
+   cuentoElementos,
+   diaDeLaSemana,
+   empiezaConNueve,
+   todosIguales,
+   mesesDelAño,
+   tablaDelSeis,
+   mayorACien,
+   breakStatement,
+   continueStatement,
 };
