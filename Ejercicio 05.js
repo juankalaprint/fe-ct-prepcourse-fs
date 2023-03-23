@@ -13,7 +13,7 @@ function esPositivo(num) {
    }else if(num < 0){
       return "Es negativo";
    }else {
-      return false;
+      return False;
    }
 }
 
