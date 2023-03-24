@@ -11,7 +11,8 @@ class Persona {
       this.nombre = nombre,
       this.apellido = apellido,
       this.edad = edad,
-      this.domicilio = domiciliothis.detalle = function() {
+      this.domicilio = domicilio 
+      this.detalle = function() {
          return {nombre: this.nombre,apellido: this.apellido,edad: this.edad,domicilio: this.domicilio}
       }
    }
